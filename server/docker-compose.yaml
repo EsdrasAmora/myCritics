@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  postgresService:
+    container_name: postgresContainer
+    image: postgres:9.6
+    ports:
+      - "5432:5432"
+    volumes:
+      - /var/lib/postgresql/data:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+  # redis:
+  #   image: redis:5.0.9-alpine
+  #   container_name: eudora_fvc_redis
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - ./redis.conf:/usr/local/etc/redis/redis.conf
+  #     - ./redis-db:/data
+  #   command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
